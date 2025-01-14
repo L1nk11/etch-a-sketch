@@ -1,6 +1,5 @@
 body {
     margin: 0px;
-    border: 1px solid red;
 }
 
 .main{
@@ -20,11 +19,13 @@ body {
 
 /* .main .top .right{
 
-}
-
-.main .top .left{
-    
 } */
+
+#indicator{
+    font-weight: bolder;
+    font-size: 32px;
+    margin: 0px;
+}
 
 .grid {
     display: grid;
@@ -35,7 +36,7 @@ body {
     max-width: 720px;
     height: 100%;
     max-height: 720px;
-    border: 1px solid black;
+    border: 1px solid #000000;
 }
 
 .cell {
