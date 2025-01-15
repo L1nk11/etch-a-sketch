@@ -2,6 +2,11 @@ const mainGrid = document.getElementById('grid')
 const slider = document.getElementById('rangeSlider')
 const customSize = [8, 12, 16, 24, 32, 48, 64, 96]
 const indicator = document.getElementById('indicator')
+const clearBtn = document.getElementById('clear')
+const pencilBtn = document.getElementById('pencil')
+const rainbowBtn = document.getElementById('rainbow')
+const eraserBtn = document.getElementById('eraser')
+const colorPicker = document.getElementById('colorPicker')
 
 const debug = false
 
@@ -12,24 +17,11 @@ let inGrid = false
 let currentColor = '#000000'
 let currentGridSize = null
 
-// call the createGrid function and send the value based on customSize
-slider.addEventListener('input', function () {
-    createGrid(customSize[slider.value])
-    currentGridSize = customSize[slider.value]
-    indicator.textContent = customSize[slider.value] + 'x' + customSize[slider.value]
-});
-
-mainGrid.addEventListener('pointerleave', () => {
-    inGrid = false
-    painting = false
-})
-
-mainGrid.addEventListener('pointerenter', () => {
-    inGrid = true
-})
-
 //function to create the grid
 function createGrid(gridSize) {
+    // save current grid size
+    currentGridSize = gridSize
+
     // empty the grid 
     mainGrid.innerHTML = ''
 
@@ -88,6 +80,39 @@ function getRandomColor() {
     const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
     return randomColor;
 }
+
+function selectColor() {
+    paintMode = 1
+    currentColor = colorPicker.value
+}
+
+clearBtn.addEventListener('click', function() {
+    clearGrid()
+})
+
+// call the createGrid function and send the value based on customSize
+slider.addEventListener('input', function () {
+    createGrid(customSize[slider.value])
+    currentGridSize = customSize[slider.value]
+    indicator.textContent = customSize[slider.value] + 'x' + customSize[slider.value]
+});
+
+mainGrid.addEventListener('pointerleave', () => {
+    inGrid = false
+    painting = false
+})
+
+mainGrid.addEventListener('pointerenter', () => {
+    inGrid = true
+})
+
+rainbowBtn.addEventListener('click', function() {
+    paintMode = 0
+})
+
+eraserBtn.addEventListener('click', function() {
+    paintMode = 2
+})
 
 indicator.textContent = customSize[slider.value] + 'x' + customSize[slider.value]
 createGrid(8)
