@@ -8,32 +8,37 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="header"></div>
-    <div class="main">
-        <div class="top">
-            <div class="right">
-                <input type="range" id="rangeSlider" min="0" max="7" step="1" value="0">    
-            </div>
-            <div class="left">
-                <p id="indicator">0</p>
-            </div>
-        </div>
-        <div class="mid">
-            <div class="grid" id="grid"></div>
-        </div>
-        <div class="bot">
-            <div class="left">
-                <input type="color" id="colorPicker" onchange="selectColor()">
-                <div class="rainbow" id="rainbow">
-                    <div class="inner"></div>
-                </div>
-                <div class="eraser" id="eraser"></div>    
-            </div>
-            <div class="right">
-                <button class="clear" id="clear">Clear</button>
-            </div>
-        </div>
+    <div class="header">
+        <h1>Etch-A-Sketch✏️</h1>
     </div>
-    <div class="footer"></div>
+    <div class="body">
+        <div class="main">
+            <div class="top">
+                <div class="right">
+                    <input type="range" id="rangeSlider" min="0" max="7" step="1" value="0">    
+                </div>
+                <div class="left">
+                    <p id="indicator">0</p>
+                </div>
+            </div>
+            <div class="mid">
+                <div class="grid" id="grid"></div>
+            </div>
+            <div class="bot">
+                <div class="left">
+                    <input type="color" id="colorPicker" onchange="selectColor()">
+                    <div class="rainbow" id="rainbow">
+                        <div class="inner"></div>
+                    </div>
+                    <div class="eraser" id="eraser">
+                        <div class="inner"><img src="img/eraser.svg" alt=""></div>
+                    </div>    
+                </div>
+                <div class="right">
+                    <button class="clear" id="clear">Clear</button>
+                </div>
+            </div>
+        </div>        
+    </div>
 </body>
 </html>
